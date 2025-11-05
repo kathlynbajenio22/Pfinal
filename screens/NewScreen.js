@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
 import { useFocusEffect } from "@react-navigation/native";
 import { BASE_URL } from "../constant";
 import { Ionicons } from "@expo/vector-icons";
@@ -63,22 +62,27 @@ const NewScreen = ({ route }) => {
       : null;
 
   const getMotivationalMessage = () => {
-    if (points >= 1000) return "🌎 Amazing! You’re a Recycling Hero!";
-    if (points >= 500) return "💪 Keep recycling! Every bottle counts!";
-    if (points >= 100) return "♻️ Great job! You're helping clean the planet!";
+      if (points >= 1000) return "🌎 Amazing! You’re a Recycling Hero!";
+      if (points >= 500) return "💪 Keep recycling! Every bottle counts!";
+      if (points >= 100) return "♻️ Great job! You're helping clean the planet!";
+      if (points >= 50) return "🌼 You're making a real difference — keep it up!";
+      if (points >= 40) return "🌿 Fantastic effort! The Earth is smiling!";
+      if (points >= 30) return "🌻 You're building great green habits!";
+      if (points >= 20) return "🍃 Awesome start! Keep collecting those bottles!";
+      if (points >= 10) return "🌱 Good job! Every small step helps!";  
     return "🌱 Start recycling bottles to earn rewards and save Earth!";
   };
 
   if (loading) {
     return (
-      <LinearGradient colors={["#BBF7D0", "#059669"]} style={styles.loadingContainer}>
+      <View style={[styles.loadingContainer, { backgroundColor: "#DEFFE4" }]}>
         <Text style={styles.loadingText}>Loading your recycling dashboard...</Text>
-      </LinearGradient>
+      </View>
     );
   }
 
   return (
-    <LinearGradient colors={["#F7FCF5"]} style={styles.background}>
+    <View style={styles.background}>
       <ScrollView contentContainerStyle={styles.container}>
         <Text style={styles.welcomeText}>Welcome, {user.username || "Recycler"}! ♻️</Text>
 
@@ -150,13 +154,14 @@ const NewScreen = ({ route }) => {
           </View>
         )}
       </ScrollView>
-    </LinearGradient>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    backgroundColor: "#DEFFE4",
   },
   container: {
     padding: 20,
@@ -170,7 +175,7 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     fontSize: 18,
-    color: "#fff",
+    color: "#166534",
     fontWeight: "600",
   },
   welcomeText: {

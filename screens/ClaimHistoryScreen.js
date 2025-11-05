@@ -1,4 +1,3 @@
-// screens/ClaimHistoryScreen.js
 import React, { useState, useCallback } from 'react';
 import {
   View,
@@ -177,14 +176,11 @@ const ClaimHistoryScreen = ({ route }) => {
   };
 
   return (
-    <LinearGradient
-      colors={['#BBF7D0', '#059669']}
-      style={styles.background}
-    >
+    <LinearGradient colors={['#BBF7D0', '#059669']} style={styles.background}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>Claim History</Text>
-          <Text style={styles.subtitle}>Track your reward requests and their status.</Text>
+          <Text style={styles.title}>🎟️ Claim History</Text>
+          <Text style={styles.subtitle}>Track your reward requests and status.</Text>
         </View>
 
         {/* Search Bar */}
@@ -199,10 +195,7 @@ const ClaimHistoryScreen = ({ route }) => {
         </View>
 
         {/* Filter Button */}
-        <TouchableOpacity
-          style={styles.filterButton}
-          onPress={() => setShowFilter(!showFilter)}
-        >
+        <TouchableOpacity style={styles.filterButton} onPress={() => setShowFilter(!showFilter)}>
           <Text style={styles.filterButtonText}>
             Filter: {filterStatus.charAt(0).toUpperCase() + filterStatus.slice(1)}
           </Text>
@@ -243,13 +236,15 @@ const ClaimHistoryScreen = ({ route }) => {
   );
 };
 
+export default ClaimHistoryScreen;
+
 const styles = StyleSheet.create({
   background: {
     flex: 1,
   },
   container: {
     flex: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
     paddingTop: 60,
   },
   header: {
@@ -263,7 +258,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#6C757D',
+    color: '#374151',
     textAlign: 'center',
   },
   searchContainer: {
@@ -274,6 +269,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginBottom: 12,
     height: 50,
+    elevation: 3,
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
   },
   searchInput: {
     flex: 1,
@@ -306,7 +305,7 @@ const styles = StyleSheet.create({
   },
   claimItem: {
     backgroundColor: '#fff',
-    borderRadius: 12,
+    borderRadius: 15,
     padding: 16,
     marginBottom: 12,
     shadowColor: '#000',
@@ -389,5 +388,3 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
 });
-
-export default ClaimHistoryScreen;
