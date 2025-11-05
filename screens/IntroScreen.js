@@ -5,7 +5,6 @@ import {
   Image,
   StyleSheet,
   Dimensions,
-  TouchableOpacity,
 } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
@@ -22,13 +21,13 @@ const slides = [
     key: '2',
     title: 'Earn & Redeem',
     text: 'Collect points by scanning and exchange them for cool stuff!',
-    image: require('../assets/logss.png'),
+    image: require('../assets/recycle3.png'), // 👈 Added your recycle image here
   },
   {
     key: '3',
     title: 'Stay Updated',
     text: 'Check your profile, rewards, and transaction history anytime.',
-    image: require('../assets/logss.png'),
+    image: require('../assets/stay1.jpg'),
   },
 ];
 
@@ -95,7 +94,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: 'bold',
-    color: '#6200ee',
+    color: '#50C878',
     textAlign: 'center',
     marginBottom: 15,
   },
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    color: '#6200ee',
+    color: '#50C878',
     fontWeight: '600',
   },
   leftButton: {
@@ -119,6 +118,5 @@ const styles = StyleSheet.create({
     marginRight: 30,
     padding: 10,
     bottom: 30,
-    
   },
 });

@@ -9,7 +9,6 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { BASE_URL } from '../constant';
 import { useFocusEffect } from '@react-navigation/native';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
@@ -176,11 +175,11 @@ const ClaimHistoryScreen = ({ route }) => {
   };
 
   return (
-    <LinearGradient colors={['#BBF7D0', '#059669']} style={styles.background}>
+    <View style={styles.background}>
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.title}>🎟️ Claim History</Text>
-          <Text style={styles.subtitle}>Track your reward requests and status.</Text>
+          <Text style={styles.title}>Claim History</Text>
+          <Text style={styles.subtitle}>Track your reward requests and their status.</Text>
         </View>
 
         {/* Search Bar */}
@@ -195,7 +194,10 @@ const ClaimHistoryScreen = ({ route }) => {
         </View>
 
         {/* Filter Button */}
-        <TouchableOpacity style={styles.filterButton} onPress={() => setShowFilter(!showFilter)}>
+        <TouchableOpacity
+          style={styles.filterButton}
+          onPress={() => setShowFilter(!showFilter)}
+        >
           <Text style={styles.filterButtonText}>
             Filter: {filterStatus.charAt(0).toUpperCase() + filterStatus.slice(1)}
           </Text>
@@ -232,19 +234,18 @@ const ClaimHistoryScreen = ({ route }) => {
           contentContainerStyle={{ paddingBottom: 50 }}
         />
       </View>
-    </LinearGradient>
+    </View>
   );
 };
-
-export default ClaimHistoryScreen;
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
+    backgroundColor: '#E8F5E8', // 🌿 Same as Reward screen background
   },
   container: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingTop: 60,
   },
   header: {
@@ -258,7 +259,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 16,
-    color: '#374151',
+    color: '#6C757D',
     textAlign: 'center',
   },
   searchContainer: {
@@ -269,10 +270,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginBottom: 12,
     height: 50,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowOffset: { width: 0, height: 2 },
   },
   searchInput: {
     flex: 1,
@@ -280,7 +277,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   filterButton: {
-    backgroundColor: '#E8F5E8',
+    backgroundColor: '#D1E7DD',
     padding: 12,
     borderRadius: 12,
     marginBottom: 8,
@@ -305,7 +302,7 @@ const styles = StyleSheet.create({
   },
   claimItem: {
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     shadowColor: '#000',
@@ -388,3 +385,5 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
 });
+
+export default ClaimHistoryScreen;

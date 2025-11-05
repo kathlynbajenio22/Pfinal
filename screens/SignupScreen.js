@@ -280,7 +280,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center', // centers vertically
     alignItems: 'center', // centers horizontally
-    backgroundColor: '#F7FCF5',
+    backgroundColor: '#DEFFE4',
     paddingVertical: 40,
     paddingHorizontal: 20,
   },

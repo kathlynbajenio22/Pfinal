@@ -62,14 +62,14 @@ const NewScreen = ({ route }) => {
       : null;
 
   const getMotivationalMessage = () => {
-      if (points >= 1000) return "🌎 Amazing! You’re a Recycling Hero!";
-      if (points >= 500) return "💪 Keep recycling! Every bottle counts!";
-      if (points >= 100) return "♻️ Great job! You're helping clean the planet!";
-      if (points >= 50) return "🌼 You're making a real difference — keep it up!";
-      if (points >= 40) return "🌿 Fantastic effort! The Earth is smiling!";
-      if (points >= 30) return "🌻 You're building great green habits!";
-      if (points >= 20) return "🍃 Awesome start! Keep collecting those bottles!";
-      if (points >= 10) return "🌱 Good job! Every small step helps!";  
+    if (points >= 1000) return "🌎 Amazing! You’re a Recycling Hero!";
+    if (points >= 500) return "💪 Keep recycling! Every bottle counts!";
+    if (points >= 100) return "♻️ Great job! You're helping clean the planet!";
+    if (points >= 50) return "🌼 You're making a real difference — keep it up!";
+    if (points >= 40) return "🌿 Fantastic effort! The Earth is smiling!";
+    if (points >= 30) return "🌻 You're building great green habits!";
+    if (points >= 20) return "🍃 Awesome start! Keep collecting those bottles!";
+    if (points >= 10) return "🌱 Good job! Every small step helps!";
     return "🌱 Start recycling bottles to earn rewards and save Earth!";
   };
 
@@ -90,7 +90,7 @@ const NewScreen = ({ route }) => {
         <View style={styles.card}>
           <Text style={styles.cardTitle}>💰 Your Point Balance</Text>
           <Text style={styles.pointsValue}>{points}</Text>
-          <Text style={styles.cardSubtitle}> Available to Redeem</Text>
+          <Text style={styles.cardSubtitle}>Available to Redeem</Text>
           <Text style={styles.motivationText}>{getMotivationalMessage()}</Text>
         </View>
 
@@ -153,6 +153,16 @@ const NewScreen = ({ route }) => {
             </TouchableOpacity>
           </View>
         )}
+
+        {/* ✅ Quick Tips Section */}
+        <View style={[styles.card, styles.tipsCard]}>
+          <Text style={styles.cardTitle}>💡 Quick Tips</Text>
+          <Text style={styles.tipText}>• Check rewards regularly for new items</Text>
+          <Text style={styles.tipText}>• Claim rewards before they run out</Text>
+          <Text style={styles.tipText}>• Points never expire</Text>
+          <Text style={styles.tipText}>• Track your claim status in History</Text>
+        </View>
+
       </ScrollView>
     </View>
   );
@@ -283,6 +293,16 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontWeight: "600",
     fontSize: 16,
+  },
+  /** 🧩 New Styles for Quick Tips **/
+  tipsCard: {
+    backgroundColor: "#ECFDF5",
+  },
+  tipText: {
+    fontSize: 14,
+    color: "#065F46",
+    marginVertical: 3,
+    textAlign: "center",
   },
 });
 

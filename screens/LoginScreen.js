@@ -5,10 +5,10 @@ import {
   TextInput, 
   StyleSheet, 
   Alert,
-  TouchableOpacity,
   ActivityIndicator,
   ScrollView,
-  Image
+  Image,
+  Pressable
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BASE_URL } from '../constant';
@@ -78,6 +78,7 @@ const LoginScreen = ({ navigation }) => {
           autoComplete="username"
         />
 
+        {/* Password Input with Show Button */}
         <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Password"
@@ -85,43 +86,46 @@ const LoginScreen = ({ navigation }) => {
             value={password}
             onChangeText={setPassword}
             secureTextEntry={!showPassword}
-            style={[styles.input, { flex: 1 }]}
+            style={styles.passwordInput}
             autoComplete="password"
           />
-          <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={styles.showButton}>
+          <Pressable 
+            onPress={() => setShowPassword(!showPassword)} 
+            style={styles.showButton}
+          >
             <Text style={styles.showText}>{showPassword ? 'Hide' : 'Show'}</Text>
-          </TouchableOpacity>
+          </Pressable>
         </View>
 
         {loading ? (
           <ActivityIndicator size="large" color="#91e5aa" style={styles.loader} />
         ) : (
-          <TouchableOpacity 
-            style={styles.loginButton}
+          <Pressable
             onPress={handleLogin}
-            activeOpacity={0.8}
+            style={({ pressed }) => [
+              styles.loginButton,
+              { backgroundColor: pressed ? '#50C878' : '#91e5aa' }
+            ]}
           >
             <Text style={styles.buttonText}>Login</Text>
-          </TouchableOpacity>
+          </Pressable>
         )}
 
         {/* Forgot Password Link */}
-        <TouchableOpacity 
+        <Pressable 
           onPress={() => navigation.navigate('ForgotPassword')}
-          activeOpacity={0.7}
         >
           <Text style={styles.forgotText}>Forgot Password?</Text>
-        </TouchableOpacity>
+        </Pressable>
 
-        <TouchableOpacity 
+        <Pressable 
           style={styles.signupLink}
           onPress={() => navigation.navigate('Signup')}
-          activeOpacity={0.7}
         >
           <Text style={styles.signupText}>
             Don't have an account? <Text style={styles.signupLinkText}>Sign Up</Text>
           </Text>
-        </TouchableOpacity>
+        </Pressable>
       </View>
     </ScrollView>
   );
@@ -139,7 +143,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   logo: {
-    marginTop: '15',
+    marginTop: 15,
     width: 275,
     height: 275,
     marginBottom: 1,
@@ -183,18 +187,32 @@ const styles = StyleSheet.create({
   passwordContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e1e1e1',
+    borderRadius: 12,
+    backgroundColor: '#fafafa',
     marginBottom: 20,
+    height: 55,
+    paddingHorizontal: 10,
+  },
+  passwordInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#333',
+    paddingHorizontal: 10,
   },
   showButton: {
-    marginLeft: 10,
-    padding: 10,
+    paddingHorizontal: 8,
+    paddingVertical: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   showText: {
     color: '#91e5aa',
     fontWeight: 'bold',
+    fontSize: 15,
   },
   loginButton: {
-    backgroundColor: '#91e5aa',
     height: 55,
     borderRadius: 12,
     justifyContent: 'center',
