@@ -27,7 +27,7 @@ const slides = [
     key: '3',
     title: 'Stay Updated',
     text: 'Check your profile, rewards, and transaction history anytime.',
-    image: require('../assets/stay1.jpg'),
+    image: require('../assets/stay2.jpg'),
   },
 ];
 
